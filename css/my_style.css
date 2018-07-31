@@ -2,7 +2,19 @@
   color: blue;
 }
 
+h2{
+  text-align: center;
+}
+
 .top-nav {
   height: 5%;
   background-color: #404041;
+}
+
+.number {
+  color: #ED458B;
+}
+
+.guesser {
+  color: #E6E7E8;
 }
