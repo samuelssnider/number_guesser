@@ -2,19 +2,25 @@
   color: blue;
 }
 
-h2{
+.title{
   text-align: center;
 }
 
 .top-nav {
-  height: 5%;
+  display: flex;
+  height: 8%;
+  width: 100%;
   background-color: #404041;
+  justify-content: center;
 }
 
 .number {
+  font-family: "Open Sans";
+  font-weight: 700;
   color: #ED458B;
 }
 
 .guesser {
   color: #E6E7E8;
+  font-weight: li;
 }
