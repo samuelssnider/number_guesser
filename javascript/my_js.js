@@ -1,1 +1,2 @@
-console.log(4);
+$(document).ready(function() {
+}

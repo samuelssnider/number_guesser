@@ -28,3 +28,12 @@
 .guess-field {
   text-align: center;
 }
+
+.container{
+  text-align: center;
+  justify-content: center;
+}
+
+.in-line {
+  display: in-line;
+}
