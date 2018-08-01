@@ -24,3 +24,7 @@
   color: #E6E7E8;
   font-weight: li;
 }
+
+.guess-field {
+  text-align: center;
+}
