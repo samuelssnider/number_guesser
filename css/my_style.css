@@ -25,6 +25,10 @@
   font-weight: li;
 }
 
+.guess-field {
+  text-align: center;
+}
+
 .container{
   text-align: center;
   justify-content: center;
