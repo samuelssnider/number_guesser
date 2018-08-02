@@ -18,7 +18,8 @@ ready(function(){
   console.log(randomNum)
   guessField.addEventListener('keypress', function (e) {
       if (e.key === 'Enter') {
-        console.log(guessField)
+        var userGuess = parseInt(guessField.value)
+        switch ( userGuess)
       }
   });
 
