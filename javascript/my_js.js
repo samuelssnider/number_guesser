@@ -1,16 +1,28 @@
 
-var guessField = document.getElementsByClassName('guess-field');
-var randomNum
-guess_field.addEventListener('keypress', , function (e) {
-    var key = e.which || e.keyCode;
-    if (key === 13) {
-      
-    }
+
+
+function ready(callback){
+    // in case the document is already rendered
+    if (document.readyState!='loading') callback();
+    // modern browsers
+    else if (document.addEventListener) document.addEventListener('DOMContentLoaded', callback);
+    // IE <= 8
+    else document.attachEvent('onreadystatechange', function(){
+        if (document.readyState=='complete') callback();
+    });
+}
+
+ready(function(){
+  var guessField = document.querySelector('.guess-field');
+  var randomNum = (Math.floor(Math.random() * 100)+ 1);
+  console.log(randomNum)
+  guessField.addEventListener('keypress', function (e) {
+      if (e.key === 'Enter') {
+        console.log(guessField)
+      }
+  });
+
 });
 
 
-function (e) {
-  if (13 == e.keyCode) {
-     ... do whatever ...
-  }
-}
+ready();
