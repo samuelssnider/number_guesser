@@ -10,11 +10,7 @@ function ready(callback){
     });
 }
 
-var addListeners = function(e) {
-  var guessField = document.querySelector('.guess-field');
-  var output = document.querySelector('.output')
-  var randomNum = (Math.floor(Math.random() * 100)+ 1);
-  
+var addEnterListener = function (guessField, output, randomNum){
   guessField.addEventListener('keypress', function (e) {
     var text = ''
     if (e.key === 'Enter') {
@@ -35,8 +31,15 @@ var addListeners = function(e) {
   });
 }
 
+var addListeners = function(e) {
+  var guessField = document.querySelector('.guess-field');
+  var output = document.querySelector('.output')
+  var randomNum = (Math.floor(Math.random() * 100)+ 1);
+  addEnterListener (guessField, output, randomNum);
+}
+
 ready(function(){
-  addListeners();  
+  addListeners();
 });
 
 
