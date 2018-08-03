@@ -16,25 +16,25 @@ ready(function(){
   var guessField = document.querySelector('.guess-field');
   var output = document.querySelector('.output')
   var randomNum = (Math.floor(Math.random() * 100)+ 1);
+  
   console.log(randomNum)
   guessField.addEventListener('keypress', function (e) {
-      if (e.key === 'Enter') {
-        var userGuess = parseInt(guessField.value)
-        var text = ''
-        switch ( true) {
-          case userGuess > randomNum:
-            text = "Too High";
-            break;
-          case userGuess < randomNum:
-            text = "Too High";
-            break;
-          case userGuess === randomNum:
-            text = "Too High"
-            break;
-        }
+    var text = ''
+    if (e.key === 'Enter') {
+      var userGuess = parseInt(guessField.value)
+      switch (true) {
+        case userGuess > randomNum:
+          text = "Too High";
+          break;
+        case userGuess < randomNum:
+          text = "Too Low";
+          break;
+        case userGuess === randomNum:
+          text = "Too You Guessed It Buddy!";
+          break;
       }
-  output.InnerText = text
-      
+      output.innerText = text;
+    }
   });
 
 });
