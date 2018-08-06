@@ -46,8 +46,8 @@ var addGuessButtonListener = function (guessButton, guessField, output, randomNu
       case userGuess === randomNum:
         text = "You Guessed It Buddy!";
         break;
-      output.innerText = text;
     }
+    output.innerText = text;
   });
 }
 
