@@ -50,7 +50,13 @@ var addGuessButtonListener = function (guessButton, guessField, output, randomNu
     output.innerText = text;
   });
 }
-
+var addClearButtonListener = function (clearButton, guessField,  output) {
+  clearButton.addEventListener('click', function(e) {
+    output.innerText = ""
+    guessField.value = null;
+    
+  })
+}
 
 var addListeners = function(e) {
   var guessField = document.querySelector('.guess-field');
@@ -59,6 +65,7 @@ var addListeners = function(e) {
   var output = document.querySelector('.output')
   addEnterListener (guessField, output, randomNum);
   addGuessButtonListener(guessButton, guessField, output, randomNum)
+  addClearButtonListener(clearButton, guessField,  output)
 }
 
 ready(function(){
