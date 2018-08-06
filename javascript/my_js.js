@@ -24,7 +24,7 @@ var addEnterListener = function (guessField, output, randomNum){
           text = "Too Low";
           break;
         case userGuess === randomNum:
-          text = "You Guessed It Buddy!";
+          text = "BOOM!";
           break;
       }
       output.innerText = text;
@@ -34,18 +34,23 @@ var addEnterListener = function (guessField, output, randomNum){
 
 var addGuessButtonListener = function (guessButton, guessField, output, randomNum){
   guessButton.addEventListener('click', function (e) {
-    var text = ''
+    var text = '';
     var userGuess = parseInt(guessField.value)
-    switch (true) {
-      case userGuess > randomNum:
-        text = "Too High";
-        break;
-      case userGuess < randomNum:
-        text = "Too Low";
-        break;
-      case userGuess === randomNum:
-        text = "You Guessed It Buddy!";
-        break;
+    if (userGuess === NaN) {
+      text = "Error! You did not input a number!";
+      console.log("here");
+    } else {
+      switch (true) {
+        case userGuess > randomNum:
+          text = "Too High";
+          break;
+        case userGuess < randomNum:
+          text = "Too Low";
+          break;
+        case userGuess === randomNum:
+          text = "BOOM!";
+          break;
+      }
     }
     output.innerText = text;
   });
