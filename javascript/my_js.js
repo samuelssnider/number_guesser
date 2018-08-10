@@ -46,14 +46,14 @@ var addGuessButtonListener = function (guessButton, guessField, output, randomNu
           break;
         case userGuess > randomNum:
           if (userGuess > 100) {
-            text: "Guess outside of range- please try a number below 101"
+            text = "Guess outside of range - please try a number below 101"
           }  else {
             text = "Too High";
           }
           break;
         case userGuess < randomNum:
           if (userGuess < 1) {
-            text: "Guess outside of range- please try a number above 0"
+            text = "Guess outside of range - please try a number above 0"
           }  else {
             text = "Too Low";
           }
