@@ -36,19 +36,27 @@ var addGuessButtonListener = function (guessButton, guessField, output, randomNu
   guessButton.addEventListener('click', function (e) {
     var text = '';
     var userGuess = parseInt(guessField.value)
-    if (userGuess === NaN) {
+    console.log(userGuess)
+    if (isNaN(userGuess)) {
       text = "Error! You did not input a number!";
-      console.log("here");
     } else {
       switch (true) {
-        case userGuess > randomNum:
-          text = "Too High";
-          break;
-        case userGuess < randomNum:
-          text = "Too Low";
-          break;
         case userGuess === randomNum:
           text = "BOOM!";
+          break;
+        case userGuess > randomNum:
+          if (userGuess > 100) {
+            text: "Guess outside of range- please try a number below 101"
+          }  else {
+            text = "Too High";
+          }
+          break;
+        case userGuess < randomNum:
+          if (userGuess < 1) {
+            text: "Guess outside of range- please try a number above 0"
+          }  else {
+            text = "Too Low";
+          }
           break;
       }
     }
