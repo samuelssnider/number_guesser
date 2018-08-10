@@ -79,6 +79,7 @@ var addListeners = function(e) {
   addEnterListener (guessField, output, randomNum);
   addGuessButtonListener(guessButton, guessField, output, randomNum)
   addClearButtonListener(clearButton, guessField,  output)
+  addResetButtonListener(cle)
 }
 
 ready(function(){
