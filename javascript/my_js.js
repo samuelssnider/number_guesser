@@ -2,10 +2,10 @@ var randomNum;
 
 var randomize = function(e) {
   randomNum= (Math.floor(Math.random() * 100)+ 1);
+  console.log(randomNum)
 }
 randomize();
 
-console.log(randomNum)
 function ready(callback){
     // in case the document is already rendered
     if (document.readyState!='loading') callback();
@@ -18,9 +18,11 @@ function ready(callback){
 }
 
 var addResetButtonListener = function (resetButton, guessField, output){
-  randomize()
-  guessField = ""
-  output = ""
+  resetButton.addEventListener('click', function (e) {
+    randomize();
+    guessField.value = "";
+    output.value = "";
+  });
 }
 
 
@@ -76,18 +78,21 @@ var addGuessButtonListener = function (guessButton, guessField, output, randomNu
     output.innerText = text;
   });
 }
-var addClearButtonListener = function (clearButton, guessField,  output) {
+var addClearButtonListener = function (clearButton, guessButton, guessField,  output) {
   clearButton.addEventListener('click', function(e) {
     output.innerText = ""
     guessField.value = "";
-    clearButton.disabled = true
+    guessButton.disabled = true;
+    clearButton.disabled = true;
+    
   })
 }
 
-var addGuessFieldListener = function (guessField, clearButton) {
+var addGuessFieldListener = function (guessField, guessButton, clearButton) {
   guessField.addEventListener('keypress', function(e) {
     if(guessField.value != ""){
       clearButton.disabled = false;
+      guessButton.disabled = false;
     }
   })
 }
@@ -96,13 +101,13 @@ var addListeners = function(e) {
   var guessField = document.querySelector('.guess-field');
   var guessButton = document.querySelector('.guess-btn');
   var clearButton = document.querySelector('.clear-btn');
-  var resetButton = document.querySelector('reset-btn')
+  var resetButton = document.querySelector('.reset-btn')
   var output = document.querySelector('.output')
-  addGuessFieldListener(guessField, clearButton)
+  addGuessFieldListener(guessField, guessButton, clearButton)
   addEnterListener (guessField, output, randomNum);
   addGuessButtonListener(guessButton, guessField, output, randomNum);
-  addClearButtonListener(clearButton, guessField,  output);
-  addResetButtonListener(clearButton, guessField, output);
+  addClearButtonListener(clearButton, guessButton, guessField,  output);
+  addResetButtonListener(resetButton, guessField, output);
 }
 
 ready(function(){
