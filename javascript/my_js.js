@@ -1,5 +1,4 @@
 var randomNum;
-console.log(randomNum);
 
 var randomize = function(e) {
   randomNum= (Math.floor(Math.random() * 100)+ 1);
@@ -80,8 +79,16 @@ var addGuessButtonListener = function (guessButton, guessField, output, randomNu
 var addClearButtonListener = function (clearButton, guessField,  output) {
   clearButton.addEventListener('click', function(e) {
     output.innerText = ""
-    guessField.value = null;
-    
+    guessField.value = "";
+    clearButton.disabled = true
+  })
+}
+
+var addGuessFieldListener = function (guessField, clearButton) {
+  guessField.addEventListener('keypress', function(e) {
+    if(guessField.value != ""){
+      clearButton.disabled = false;
+    }
   })
 }
 
@@ -91,6 +98,7 @@ var addListeners = function(e) {
   var clearButton = document.querySelector('.clear-btn');
   var resetButton = document.querySelector('reset-btn')
   var output = document.querySelector('.output')
+  addGuessFieldListener(guessField, clearButton)
   addEnterListener (guessField, output, randomNum);
   addGuessButtonListener(guessButton, guessField, output, randomNum);
   addClearButtonListener(clearButton, guessField,  output);
