@@ -47,7 +47,7 @@ var addEnterListener = function (guessField, output, randomNum){
   });
 }
 
-var addGuessButtonListener = function (guessButton, guessField, output, randomNum){
+var addGuessButtonListener = function (guessButton, guessField, output, randomNum, guess, text){
   guessButton.addEventListener('click', function (e) {
     var text = '';
     var userGuess = parseInt(guessField.value)
@@ -75,6 +75,8 @@ var addGuessButtonListener = function (guessButton, guessField, output, randomNu
           break;
       }
     }
+    text.innerText = "Your last guess was";
+    guess.innerText = userGuess;
     output.innerText = text;
   });
 }
@@ -101,11 +103,13 @@ var addListeners = function(e) {
   var guessField = document.querySelector('.guess-field');
   var guessButton = document.querySelector('.guess-btn');
   var clearButton = document.querySelector('.clear-btn');
-  var resetButton = document.querySelector('.reset-btn')
-  var output = document.querySelector('.output')
+  var resetButton = document.querySelector('.reset-btn');
+  var sameText = document.querySelector('.same-text');
+  var guess = document.querySelector('.show-guess');
+  var output = document.querySelector('.output');
   addGuessFieldListener(guessField, guessButton, clearButton)
   addEnterListener (guessField, output, randomNum);
-  addGuessButtonListener(guessButton, guessField, output, randomNum);
+  addGuessButtonListener(guessButton, guessField, output, randomNum, guess, text);
   addClearButtonListener(clearButton, guessButton, guessField,  output);
   addResetButtonListener(resetButton, guessField, output);
 }
