@@ -18,7 +18,6 @@ function ready(callback){
 }
 
 var addResetButtonListener = function (resetButton, guessField, output){
-  resetButton.disabled = true;
   resetButton.addEventListener('click', function (e) {
     randomize();
     guessField.value = "";
