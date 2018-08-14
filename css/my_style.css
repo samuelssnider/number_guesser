@@ -1,3 +1,7 @@
+button:disabled {
+  background-color: #D0D2D3  
+}
+
 .the-blue-one {
   color: blue;
 }
@@ -41,5 +45,19 @@
 .btn{
   color: #FFFFFF;
   background-color: #929497
-  
+}
+
+.same-text{
+  color: #404041
+}
+
+.output{
+  color: #404041
+}
+
+.show-guess{
+  color: #EB008B;
+  font-size: 6em;
+  margin-top: auto;
+  margin-bottom: auto;
 }

@@ -18,10 +18,12 @@ function ready(callback){
 }
 
 var addResetButtonListener = function (resetButton, guessField, output){
+  resetButton.disabled = true;
   resetButton.addEventListener('click', function (e) {
     randomize();
     guessField.value = "";
     output.innerText = "";
+    resetButton.disabled = true;
   });
 }
 
@@ -47,7 +49,7 @@ var addEnterListener = function (guessField, output, randomNum){
   });
 }
 
-var addGuessButtonListener = function (guessButton, guessField, output, randomNum, guess, text){
+var addGuessButtonListener = function (guessButton, guessField, output, randomNum, guess, sameText){
   guessButton.addEventListener('click', function (e) {
     var text = '';
     var userGuess = parseInt(guessField.value)
@@ -75,7 +77,8 @@ var addGuessButtonListener = function (guessButton, guessField, output, randomNu
           break;
       }
     }
-    text.innerText = "Your last guess was";
+    console.log(sameText)
+    sameText.innerText = "Your last guess was";
     guess.innerText = userGuess;
     output.innerText = text;
   });
@@ -86,7 +89,6 @@ var addClearButtonListener = function (clearButton, guessButton, guessField,  ou
     guessField.value = "";
     guessButton.disabled = true;
     clearButton.disabled = true;
-    
   })
 }
 
@@ -109,7 +111,7 @@ var addListeners = function(e) {
   var output = document.querySelector('.output');
   addGuessFieldListener(guessField, guessButton, clearButton)
   addEnterListener (guessField, output, randomNum);
-  addGuessButtonListener(guessButton, guessField, output, randomNum, guess, text);
+  addGuessButtonListener(guessButton, guessField, output, randomNum, guess, sameText);
   addClearButtonListener(clearButton, guessButton, guessField,  output);
   addResetButtonListener(resetButton, guessField, output);
 }
