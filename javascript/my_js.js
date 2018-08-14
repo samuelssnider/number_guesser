@@ -21,7 +21,7 @@ var addResetButtonListener = function (resetButton, guessField, output){
   resetButton.addEventListener('click', function (e) {
     randomize();
     guessField.value = "";
-    output.value = "";
+    output.innerText = "";
   });
 }
 
