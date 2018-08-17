@@ -29,8 +29,11 @@ var addResetButtonListener = function (resetButton, guessField, output, sameText
 }
 
 
-var addEnterListener = function (guessField, output, randomNum){
+var addEnterListener = function (guessField, output, randomNum, resetButton, guessButton, clearButton){
   guessField.addEventListener('keypress', function (e) {
+    console.log("Hello!")
+    guessButton.disabled = false;
+    clearButton.disabled = false;
     var text = ''
     if (e.key === 'Enter') {
       var userGuess = parseInt(guessField.value)
@@ -112,8 +115,8 @@ var addListeners = function(e) {
   var guess = document.querySelector('.show-guess');
   var output = document.querySelector('.output');
   addGuessFieldListener(guessField, guessButton, clearButton)
-  addEnterListener (guessField, output, randomNum, resetButton);
-  addGuessButtonListener(guessButton, guessField, output, randomNum, guess, sameText, resetButton);
+  addEnterListener(guessField, output, randomNum, resetButton, guessButton);
+  addGuessButtonListener(guessButton, guessField, output, randomNum, guess, sameText, resetButton, clearButton);
   addClearButtonListener(clearButton, guessButton, guessField,  output);
   addResetButtonListener(resetButton, guessField, output, sameText, guess);
 }
