@@ -61,3 +61,11 @@ button:disabled {
   margin-top: auto;
   margin-bottom: auto;
 }
+
+.btn {
+  border-radius: 16px;
+  margin-top: 3em;
+  margin-bottom: 3em;
+  height: 3em;
+  width: 10rem;
+}
