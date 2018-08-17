@@ -46,10 +46,13 @@ button:disabled {
 
 .in-line {
   display: in-line;
+  height: 3rem;
 }
 
 .btn{
   color: #FFFFFF;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
   background-color: #929497
 }
 
@@ -74,4 +77,8 @@ button:disabled {
   margin-bottom: 3em;
   height: 3em;
   width: 10rem;
+}
+
+.small-marg{
+  padding-top: 2rem
 }
