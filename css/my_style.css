@@ -16,17 +16,19 @@ button:disabled {
   width: 100%;
   background-color: #404041;
   justify-content: center;
+  font-family: Open Sans;
 }
 
 .number {
   font-family: "Open Sans";
   font-weight: 700;
+  font-family: sans-serif;
   color: #ED458B;
 }
 
 .guesser {
   color: #E6E7E8;
-  font-weight: li;
+  font-weight: 100;
 }
 
 .guess-field {
@@ -53,7 +55,7 @@ button:disabled {
   color: #FFFFFF;
   margin-top: 2rem;
   margin-bottom: 1rem;
-  background-color: #929497
+  background-color: #929497;
 }
 
 .same-text{
@@ -73,10 +75,12 @@ button:disabled {
 
 .btn {
   border-radius: 16px;
-  margin-top: 3em;
-  margin-bottom: 3em;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
   height: 3em;
   width: 10rem;
+  font-size: 15px;
+  font-weight: 100;
 }
 
 .small-marg{
