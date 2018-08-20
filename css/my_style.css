@@ -86,3 +86,11 @@ button:disabled {
 .small-marg{
   padding-top: 2rem
 }
+
+.low-field{
+  visibility: hidden;
+}
+
+.high-field{
+  visibility: hidden;
+}

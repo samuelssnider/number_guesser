@@ -106,11 +106,18 @@ var addGuessFieldListener = function (guessField, guessButton, clearButton) {
   })
 }
 
+var addPickButtonListener = function (pickButton) {
+  pickButton.addEventListener('click', function(e) {
+    
+  })
+}
+
 var addListeners = function(e) {
   var guessField = document.querySelector('.guess-field');
   var guessButton = document.querySelector('.guess-btn');
   var clearButton = document.querySelector('.clear-btn');
   var resetButton = document.querySelector('.reset-btn');
+  var pickButton = document.querySelector('.pick-my-own')
   var sameText = document.querySelector('.same-text');
   var guess = document.querySelector('.show-guess');
   var output = document.querySelector('.output');
@@ -119,6 +126,7 @@ var addListeners = function(e) {
   addGuessButtonListener(guessButton, guessField, output, randomNum, guess, sameText, resetButton, clearButton);
   addClearButtonListener(clearButton, guessButton, guessField,  output);
   addResetButtonListener(resetButton, guessField, output, sameText, guess);
+  addPickButtonListener(pickButton)
 }
 
 ready(function(){
