@@ -54,7 +54,7 @@ var addEnterListener = function (guessField, output, randomNum, resetButton, gue
   });
 }
 
-var addGuessButtonListener = function (guessButton, guessField, output, randomNum, guess, sameText, resetButton){
+var addGuessButtonListener = function (guessButton, guessField, output, randomNum, guess, sameText, resetButton, clearButton){
   guessButton.addEventListener('click', function (e) {
     var text = '';
     var userGuess = parseInt(guessField.value)
@@ -108,7 +108,9 @@ var addGuessFieldListener = function (guessField, guessButton, clearButton) {
 
 var addPickButtonListener = function (pickButton) {
   pickButton.addEventListener('click', function(e) {
-    
+    console.log("here")
+    document.querySelector('.low-field').hidden = false;
+    document.querySelector('.high-field').hidden = false;
   })
 }
 
