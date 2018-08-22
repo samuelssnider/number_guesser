@@ -4,6 +4,7 @@ var rangeHigh = 100;
 
 var randomize = function(e) {
   randomNum= (Math.floor(Math.random() * (rangeHigh - rangeLow))+ 1);
+  console.log(randomNum)
 }
 randomize();
 
@@ -115,6 +116,15 @@ var addPickButtonListener = function (pickButton, lf, mf, hf) {
   })
 }
 
+var addRangeFieldListener = function (field, adjust) {
+  field.addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') {
+      adjust = field.value
+      randomize();
+    }
+  })  
+}
+
 var addListeners = function(e) {
   var guessField = document.querySelector('.guess-field');
   var guessButton = document.querySelector('.guess-btn');
@@ -133,10 +143,8 @@ var addListeners = function(e) {
   addClearButtonListener(clearButton, guessButton, guessField,  output);
   addResetButtonListener(resetButton, guessField, output, sameText, guess);
   addPickButtonListener(pickButton, lowField, middleField, highField);
-  addLowFieldListener(lowField);
-  addHighFieldListener();
-  
-  
+  addRangeFieldListener(lowField, rangeLow);
+  addRangeFieldListener(highField, rangeHigh);
 }
 
 ready(function(){
