@@ -1,7 +1,9 @@
 var randomNum;
+var rangeLow = 0;
+var rangeHigh = 100;
 
 var randomize = function(e) {
-  randomNum= (Math.floor(Math.random() * 100)+ 1);
+  randomNum= (Math.floor(Math.random() * (rangeHigh - rangeLow))+ 1);
 }
 randomize();
 
@@ -131,6 +133,10 @@ var addListeners = function(e) {
   addClearButtonListener(clearButton, guessButton, guessField,  output);
   addResetButtonListener(resetButton, guessField, output, sameText, guess);
   addPickButtonListener(pickButton, lowField, middleField, highField);
+  addLowFieldListener(lowField);
+  addHighFieldListener();
+  
+  
 }
 
 ready(function(){
