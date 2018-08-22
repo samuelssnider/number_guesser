@@ -47,7 +47,10 @@ button:disabled {
 }
 
 .in-line {
-  display: in-line;
+  display: inline;
+}
+
+.height-adj{
   height: 3rem;
 }
 
@@ -97,4 +100,9 @@ button:disabled {
 
 .middle-field{
   visibility: hidden;
+}
+
+.marg-reduce{
+  margin-top: .1rem;
+  margin-bottom: .1rem;
 }
