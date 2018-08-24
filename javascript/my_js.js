@@ -32,7 +32,7 @@ var addResetButtonListener = function (resetButton, guessField, output, sameText
 }
 
 
-var addEnterListener = function (guessField, output, randomNum, resetButton, guessButton, clearButton){
+var addEnterListener = function (guessField, output, randomNum, resetButton, guessButton, clearButton, sameText, guess){
   guessField.addEventListener('keypress', function (e) {
     guessButton.disabled = false;
     clearButton.disabled = false;
@@ -41,17 +41,26 @@ var addEnterListener = function (guessField, output, randomNum, resetButton, gue
       var userGuess = parseInt(guessField.value)
       switch (true) {
         case userGuess > randomNum:
-          text = "Too High";
-          break;
+          if (userGuess > 100) {
+            text = "Guess outside of range - please try a number below 101"
+          }  else {
+            text = "Too High";
+          }
         case userGuess < randomNum:
-          text = "Too Low";
-          break;
+          if (userGuess < 1) {
+            text = "Guess outside of range - please try a number above 0"
+          }  else {
+            text = "Too Low";
+          }
         case userGuess === randomNum:
           text = "BOOM!";
           break;
       }
+      guess.innerText = userGuess
+      sameText.innerText = "Your last guess was";
       output.innerText = text;
       resetButton.disabled = false;
+      guessField.value = ""
     }
   });
 }
@@ -138,7 +147,7 @@ var addListeners = function(e) {
   var middleField = document.querySelector('.middle-field')
   var highField = document.querySelector('.low-field');
   addGuessFieldListener(guessField, guessButton, clearButton)
-  addEnterListener(guessField, output, randomNum, resetButton, guessButton, clearButton);
+  addEnterListener(guessField, output, randomNum, resetButton, guessButton, clearButton, sameText, guess);
   addGuessButtonListener(guessButton, guessField, output, randomNum, guess, sameText, resetButton, clearButton);
   addClearButtonListener(clearButton, guessButton, guessField,  output);
   addResetButtonListener(resetButton, guessField, output, sameText, guess);
